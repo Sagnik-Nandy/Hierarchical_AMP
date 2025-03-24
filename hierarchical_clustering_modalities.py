@@ -3,11 +3,15 @@ from sklearn.metrics.pairwise import rbf_kernel, cosine_similarity
 from sklearn.decomposition import PCA
 from sklearn.cross_decomposition import CCA
 import scipy.cluster.hierarchy as sch
+from sklearn.neighbors import NearestNeighbors
 import matplotlib as plt
 from scipy.stats import pearsonr, wasserstein_distance
 from scipy.spatial import procrustes
 import networkx as nx
 from scipy.sparse.csgraph import shortest_path
+from sklearn.neighbors import radius_neighbors_graph
+from scipy.spatial import distance_matrix
+from scipy.sparse import csr_matrix
 
 def compute_kmac(Y_ker, Y_gr, epsilon=0.1, sigma=1.0):
     """
@@ -34,36 +38,43 @@ def compute_kmac(Y_ker, Y_gr, epsilon=0.1, sigma=1.0):
     # Step 1: Compute kernel matrix K(Y_ker, Y_ker) using the RBF kernel
     K_matrix = rbf_kernel(Y_ker, Y_ker, gamma=1/(2 * sigma**2))
 
-    # Step 2: Construct the geometric graph G_n using Y_gr
-    G = nx.Graph()
-    
-    # Ensure all nodes are in the graph
-    G.add_nodes_from(range(n))  
+    # Step 2: Build sparse adjacency matrix for geometric graph
+    # Fit Nearest Neighbors
+    nbrs = NearestNeighbors(n_neighbors=2, algorithm='auto').fit(Y_gr)
+    _, indices = nbrs.kneighbors(Y_gr)
 
+    # Construct symmetric adjacency list (exclude self-loop)
+    adj_list = {i: set() for i in range(n)}
     for i in range(n):
-        for j in range(i + 1, n):
-            if np.linalg.norm(Y_gr[i, :] - Y_gr[j, :]) < epsilon:  # Connect if within threshold
-                G.add_edge(i, j)
+        j = indices[i, 1]  # Skip self (index 0)
+        adj_list[i].add(j)
+        adj_list[j].add(i)  # Make symmetric
 
-    # Compute degrees safely
-    degrees = np.array([G.degree[i] if i in G.nodes else 0 for i in range(n)])  # ✅ FIXED
-    degrees[degrees == 0] = 1  # Avoid division by zero
 
-    # Step 3: Compute numerator
-    first_term = np.mean([
-        (1 / degrees[i]) * sum(K_matrix[i, j] for j in G.neighbors(i))
-        for i in range(n) if degrees[i] > 0
-    ]) if n > 1 else 0  # Ensure valid mean computation
 
-    second_term = np.sum(K_matrix) / (n * (n - 1)) if n > 1 else 0  # Avoid division by zero
+    # Step 3: Degree vector (avoid divide-by-zero) and numerator
+
+    degrees = np.array([len(adj_list[i]) for i in range(n)])
+    degrees[degrees == 0] = 1  # Avoid divide-by-zero
+
+    local_kernel_sums = []
+    for i in range(n):
+        degree_i = degrees[i]
+        neighbors = adj_list[i]
+        if degree_i > 0:
+            sum_K = sum(K_matrix[i, j] for j in neighbors)
+            local_kernel_sums.append(sum_K / degree_i)
+
+    first_term = np.mean(local_kernel_sums)
+    second_term = (np.sum(K_matrix) - np.trace(K_matrix)) / (n * (n - 1)) if n > 1 else 0
 
     numerator = first_term - second_term
 
     # Step 4: Compute denominator (kernel variance term)
-    kernel_variance = np.sum([
-        np.linalg.norm(K_matrix[i, :] - K_matrix[j, :])**2
-        for i in range(n) for j in range(n) if i != j
-    ]) / (2 * n * (n - 1)) if n > 1 else 1  # Avoid division by zero
+    # Sum of off-diagonal elements
+    total_sum = np.sum(K_matrix) - np.trace(K_matrix)
+    kernel_variance = 1 - (total_sum / (n * (n - 1)))
+
 
     return numerator / kernel_variance if kernel_variance != 0 else 0.0
 

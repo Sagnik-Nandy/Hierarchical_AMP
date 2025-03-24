@@ -7,6 +7,7 @@ pca_pack = importlib.import_module("pca_pack")
 emp_bayes = importlib.import_module("emp_bayes")
 amp = importlib.import_module("amp")
 preprocessing = importlib.import_module("preprocessing")
+clusterer = importlib.import_module("preprocessing")
 
 def extract_normalized_U(pca_model, X_list):
     """
@@ -91,7 +92,7 @@ class MultimodalPCAPipeline:
         self.cluster_model_v = None
         self.amp_results = None
 
-    def denoise_amp(self, X_list, K_list, cluster_labels_U, amp_iters=10, muteu=False, mutev=False):
+    def denoise_amp(self, X_list, K_list, cluster_labels_U, amp_iters=10, muteu=False, mutev=False, preprocess = False):
         """
         Runs the full denoising pipeline: Preprocessing, PCA, empirical Bayes modeling, and AMP.
 
@@ -117,15 +118,19 @@ class MultimodalPCAPipeline:
             - "V_non_denoised": dict of non-denoised V matrices
             - "V_denoised": dict of denoised V matrices
         """
-
-        print("\n=== Step 1: Preprocessing ===")
-        #diagnostic_tool = preprocessing.MultiModalityPCADiagnostics()
-        #X_preprocessed = diagnostic_tool.normalize_obs(X_list, K_list)
+        
+        if preprocess:
+            print("\n=== Step 1: Preprocessing ===")
+            diagnostic_tool = preprocessing.MultiModalityPCADiagnostics()
+            X_preprocessed = diagnostic_tool.normalize_obs(X_list, K_list)
 
         print("\n=== Step 2: PCA ===")
         self.pca_model = pca_pack.MultiModalityPCA()
-        #self.pca_model.fit(X_preprocessed, K_list, plot_residual=False)
-        self.pca_model.fit(X_list, K_list, plot_residual=False)
+
+        if preprocess:
+           self.pca_model.fit(X_preprocessed, K_list, plot_residual=False)
+        else:
+            self.pca_model.fit(X_list, K_list, plot_residual=False)
 
         print("\n=== Step 3: Constructing Empirical Bayes Models ===")
         n = X_list[0].shape[0]
@@ -155,4 +160,231 @@ class MultimodalPCAPipeline:
                                                 amp_iters=amp_iters, muteu=muteu, mutev=mutev)
 
         print("\n=== Denoising Complete! ===")
+        return self.amp_results
+    
+class MultimodalPCAPipelineClustering:
+    """
+    Full pipeline for multimodal PCA denoising using AMP with clustering-based Empirical Bayes.
+
+    Steps:
+    1. Perform PCA on modality matrices.
+    2. Cluster modalities based on normalized sample PCs (U).
+    3. Construct empirical Bayes denoisers for U (cluster-based) and V (per-modality).
+    4. Run AMP to denoise U and V.
+
+    Attributes
+    ----------
+    pca_model : MultiModalityPCA
+        PCA results after fitting.
+    cluster_model_u : ClusterEmpiricalBayes
+        Empirical Bayes model for U (shared across clusters).
+    cluster_model_v : ClusterEmpiricalBayes
+        Empirical Bayes model for V (per-modality).
+    amp_results : dict
+        Dictionary of AMP outputs (raw/denoised U and V).
+    """
+
+    def __init__(self):
+        self.pca_model = None
+        self.cluster_model_u = None
+        self.cluster_model_v = None
+        self.amp_results = None
+
+    def denoise_amp(
+        self, X_list, K_list,
+        cluster_labels_U=None, compute_clusters=True, num_clusters=1,
+        threshold=None, amp_iters=10, muteu=False, mutev=False, preprocess=False
+    ):
+        """
+        Run the complete AMP denoising pipeline.
+
+        Parameters
+        ----------
+        X_list : list of np.ndarray
+            List of m data matrices of shape (n, r_k) per modality.
+        K_list : list of int
+            List of number of PCs to retain per modality.
+        cluster_labels_U : array-like, optional
+            Cluster labels for U. Required if compute_clusters is False.
+        compute_clusters : bool
+            Whether to compute clusters using similarity of U.
+        num_clusters : int
+            Number of clusters to compute if compute_clusters is True.
+        threshold : float, optional
+            Threshold for hierarchical clustering.
+        amp_iters : int
+            Number of AMP iterations.
+        muteu : bool
+            If True, disables denoising in U direction.
+        mutev : bool
+            If True, disables denoising in V direction.
+        preprocess : bool
+            Whether to normalize input data before PCA.
+
+        Returns
+        -------
+        amp_results : dict
+            Contains denoised and raw U and V matrices.
+        """
+        # Step 1: Preprocessing (optional)
+        if preprocess:
+            print("\n=== Step 1: Preprocessing ===")
+            diagnostic_tool = preprocessing.MultiModalityPCADiagnostics()
+            X_list = diagnostic_tool.normalize_obs(X_list, K_list)
+
+        # Step 2: PCA
+        print("\n=== Step 2: PCA ===")
+        self.pca_model = pca_pack.MultiModalityPCA()
+        self.pca_model.fit(X_list, K_list, plot_residual=False)
+
+        # Step 3: Clustering
+        print("\n=== Step 3: Clustering Modalities via U ===")
+        U_normalized_list = extract_normalized_U(self.pca_model, X_list)
+        V_normalized_list = extract_normalized_V(self.pca_model, X_list)
+
+        if compute_clusters:
+            from hierarchical_clustering_modalities import ModalityClusterer
+            clusterer_obj = ModalityClusterer(U_normalized_list)
+            similarity_matrix = clusterer_obj.compute_similarity_matrix("hss", epsilon=0.2, sigma=1.0)
+            print("Similarity Matrix (HSS):\n", similarity_matrix)
+            cluster_labels_U = clusterer_obj.cluster_modalities("hss", num_clusters=num_clusters, threshold=threshold)
+        elif cluster_labels_U is None:
+            raise ValueError("Either enable compute_clusters or provide cluster_labels_U.")
+
+        print("Cluster Labels for U:", cluster_labels_U)
+
+        # Step 4: Construct Empirical Bayes Models
+        print("\n=== Step 4: Constructing Empirical Bayes Models ===")
+        M_matrices_v = [np.diag(p.feature_aligns) for p in self.pca_model.pca_results.values()]
+        S_matrices_v = [np.diag(1 - p.feature_aligns**2) for p in self.pca_model.pca_results.values()]
+        M_matrices_u = [np.diag(p.sample_aligns) for p in self.pca_model.pca_results.values()]
+        S_matrices_u = [np.diag(1 - p.sample_aligns**2) for p in self.pca_model.pca_results.values()]
+
+        self.cluster_model_u = emp_bayes.ClusterEmpiricalBayes(U_normalized_list, M_matrices_u, S_matrices_u, cluster_labels_U)
+        self.cluster_model_v = emp_bayes.ClusterEmpiricalBayes(V_normalized_list, M_matrices_v, S_matrices_v, np.arange(len(X_list)))
+
+        self.cluster_model_u.estimate_cluster_priors()
+        self.cluster_model_v.estimate_cluster_priors()
+
+        # Step 5: Run AMP
+        print("\n=== Step 5: Running AMP ===")
+        self.amp_results = amp.ebamp_multimodal(
+            self.pca_model,
+            self.cluster_model_v,
+            self.cluster_model_u,
+            amp_iters=amp_iters,
+            muteu=muteu,
+            mutev=mutev
+        )
+
+        print("\n=== Denoising Complete! ===")
+        return self.amp_results
+    
+
+class MultimodalPCAPipelineClusteringSimulation:
+    """
+    Full pipeline for multimodal PCA denoising using AMP with clustering-based Empirical Bayes.
+
+    Steps:
+    1. Perform PCA on modality matrices.
+    2. Cluster modalities based on normalized sample PCs (U).
+    3. Construct empirical Bayes denoisers for U (cluster-based) and V (per-modality).
+    4. Run AMP to denoise U and V.
+
+    Attributes
+    ----------
+    pca_model : MultiModalityPCA
+        PCA results after fitting.
+    cluster_model_u : ClusterEmpiricalBayes
+        Empirical Bayes model for U (shared across clusters).
+    cluster_model_v : ClusterEmpiricalBayes
+        Empirical Bayes model for V (per-modality).
+    amp_results : dict
+        Dictionary of AMP outputs (raw/denoised U and V).
+    """
+
+    def __init__(self):
+        self.pca_model = None
+        self.cluster_model_u = None
+        self.cluster_model_v = None
+        self.amp_results = None
+
+    def denoise_amp(
+        self, X_list, K_list,
+        cluster_labels_U=None, compute_clusters=True, num_clusters=1,
+        threshold=None, amp_iters=10, muteu=False, mutev=False, preprocess=False
+    ):
+        """
+        Run the complete AMP denoising pipeline.
+
+        Parameters
+        ----------
+        X_list : list of np.ndarray
+            List of m data matrices of shape (n, r_k) per modality.
+        K_list : list of int
+            List of number of PCs to retain per modality.
+        cluster_labels_U : array-like, optional
+            Cluster labels for U. Required if compute_clusters is False.
+        compute_clusters : bool
+            Whether to compute clusters using similarity of U.
+        num_clusters : int
+            Number of clusters to compute if compute_clusters is True.
+        threshold : float, optional
+            Threshold for hierarchical clustering.
+        amp_iters : int
+            Number of AMP iterations.
+        muteu : bool
+            If True, disables denoising in U direction.
+        mutev : bool
+            If True, disables denoising in V direction.
+        preprocess : bool
+            Whether to normalize input data before PCA.
+
+        Returns
+        -------
+        amp_results : dict
+            Contains denoised and raw U and V matrices.
+        """
+        # Step 1: Preprocessing (optional)
+        if preprocess:
+            diagnostic_tool = preprocessing.MultiModalityPCADiagnostics()
+            X_list = diagnostic_tool.normalize_obs(X_list, K_list)
+
+        # Step 2: PCA
+        self.pca_model = pca_pack.MultiModalityPCA()
+        self.pca_model.fit(X_list, K_list, plot_residual=False)
+
+        # Step 3: Clustering
+        U_normalized_list = extract_normalized_U(self.pca_model, X_list)
+        V_normalized_list = extract_normalized_V(self.pca_model, X_list)
+
+        if compute_clusters:
+            from hierarchical_clustering_modalities import ModalityClusterer
+            clusterer_obj = ModalityClusterer(U_normalized_list)
+            similarity_matrix = clusterer_obj.compute_similarity_matrix("hss", epsilon=0.2, sigma=1.0)
+            cluster_labels_U = clusterer_obj.cluster_modalities("hss", num_clusters=num_clusters, threshold=threshold)
+        elif cluster_labels_U is None:
+            raise ValueError("Either enable compute_clusters or provide cluster_labels_U.")
+
+        # Step 4: Construct Empirical Bayes Models
+        M_matrices_v = [np.diag(p.feature_aligns) for p in self.pca_model.pca_results.values()]
+        S_matrices_v = [np.diag(1 - p.feature_aligns**2) for p in self.pca_model.pca_results.values()]
+        M_matrices_u = [np.diag(p.sample_aligns) for p in self.pca_model.pca_results.values()]
+        S_matrices_u = [np.diag(1 - p.sample_aligns**2) for p in self.pca_model.pca_results.values()]
+
+        self.cluster_model_u = emp_bayes.ClusterEmpiricalBayes(U_normalized_list, M_matrices_u, S_matrices_u, cluster_labels_U)
+        self.cluster_model_v = emp_bayes.ClusterEmpiricalBayes(V_normalized_list, M_matrices_v, S_matrices_v, np.arange(len(X_list)))
+
+        self.cluster_model_u.estimate_cluster_priors()
+        self.cluster_model_v.estimate_cluster_priors()
+
+        # Step 5: Run AMP
+        self.amp_results = amp.ebamp_multimodal(
+            self.pca_model,
+            self.cluster_model_v,
+            self.cluster_model_u,
+            amp_iters=amp_iters,
+            muteu=muteu,
+            mutev=mutev
+        )
         return self.amp_results
