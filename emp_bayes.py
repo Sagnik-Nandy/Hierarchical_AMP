@@ -5,8 +5,9 @@ from abc import ABC, abstractmethod
 from matplotlib import rcParams
 import matplotlib.pyplot as plt
 from scipy.stats import multivariate_normal
+import importlib
 
-def _npmle_em_hd(f, Z, mu, covInv, em_iter, eps=1e-8):
+def _npmle_em_hd(f, Z, mu, covInv, em_iter, eps=1e-5):
     """
     Performs Nonparametric Maximum Likelihood Estimation (NPMLE) using EM.
 
@@ -52,7 +53,7 @@ def _npmle_em_hd(f, Z, mu, covInv, em_iter, eps=1e-8):
 
 # consider another get W using broadcast
 # W[i,j] = f(x_i | z_j)
-def _get_W(f, z, mu, covInv, clip_max=50, eps=1e-8):
+def _get_W(f, z, mu, covInv, clip_max=50, eps=1e-5):
     """
     Compute likelihood matrix W[i, j] = P(X_i | Z_j), ensuring numerical stability.
 
@@ -98,7 +99,7 @@ def _get_W(f, z, mu, covInv, clip_max=50, eps=1e-8):
 
 
 # P[i,j] = P(Z_j | X_i)
-def _get_P(f, z, mu, covInv, pi, eps=1e-8):
+def _get_P(f, z, mu, covInv, pi, eps=1e-5):
     """
     Compute posterior probability matrix P[i, j] = P(Z_j | X_i).
 
@@ -163,6 +164,12 @@ def _get_P_from_W(W, pi, eps=1e-8):
     P = np.nan_to_num(P, nan=1/len(pi))  # Replace NaNs with uniform distribution
 
     return P
+
+def make_cluster_denoisers(eb):
+    return {
+        "denoise": lambda f, mu, cov: eb.denoise(f, mu, cov),
+        "ddenoise": lambda f, mu, cov: eb.ddenoise(f, mu, cov),
+    }
 
 
 matrix_outer = lambda A, B: np.einsum("bi,bo->bio", A, B)
@@ -376,8 +383,10 @@ class ClusterEmpiricalBayes:
         Maps each cluster to its block-diagonal S matrix.
     cluster_priors : dict
         Maps each cluster to (support_points, prior_weights).
+    cluster_denoisers : dict
+        Maps each cluster to a function that extracts its denoised values for all modalities in that cluster.
     modality_denoisers : dict
-        Maps each modality index to a function that extracts its denoised values.
+        Maps each modality index to a function that extracts its denoised values from the cluster denoiser.
     """
 
     def __init__(self, data_matrices, M_matrices, S_matrices, cluster_labels):
@@ -387,9 +396,9 @@ class ClusterEmpiricalBayes:
         Parameters
         ----------
         data_matrices : list of ndarrays
-            List of m data matrices X_k of shape (n, r_k).
+            List of m data matrices X_k of shape (n, p_k).
         M_matrices : list of ndarrays
-            List of m transformation matrices M_k of shape (r_k, p_k).
+            List of m transformation matrices M_k of shape (r_k, r_k).
         S_matrices : list of ndarrays
             List of m noise matrices S_k of shape (r_k, r_k).
         cluster_labels : list or ndarray
@@ -408,6 +417,9 @@ class ClusterEmpiricalBayes:
 
         # Dictionary to store cluster priors
         self.cluster_priors = {}
+
+        # Dictionary to store cluster-wise denoisers
+        self.cluster_denoisers = {}
 
         # Dictionary to store denoising functions for each modality
         self.modality_denoisers = {}
@@ -449,11 +461,11 @@ class ClusterEmpiricalBayes:
         -------
         cluster_priors : dict
             Dictionary mapping each cluster to (support_points, prior_weights).
+        cluster_denoisers : dict
+            Dictionary mapping each cluster to denoising functions that work on **full cluster data**.
         modality_denoisers : dict
-            Dictionary mapping each modality index to a function that extracts its denoised values.
+            Dictionary mapping each modality index to a function that extracts its denoised values from the cluster denoiser.
         """
-        cluster_denoisers = {}
-
         # Estimate priors at the cluster level
         for cluster in self.cluster_data:
             X_cluster = self.cluster_data[cluster]
@@ -473,35 +485,37 @@ class ClusterEmpiricalBayes:
 
             # Store prior per cluster
             self.cluster_priors[cluster] = (support_points, prior_weights)
-            cluster_denoisers[cluster] = nonpar_eb  # Store corresponding denoiser object
 
-        # Define denoisers per modality
+            self.cluster_denoisers[cluster] = make_cluster_denoisers(nonpar_eb)
+
+        # Define modality-specific denoisers from cluster denoisers
         for modality_idx, cluster in enumerate(self.cluster_labels):
             start_col = sum(
                 self.data_matrices[i].shape[1] for i in range(modality_idx) if self.cluster_labels[i] == cluster
             )
             end_col = start_col + self.data_matrices[modality_idx].shape[1]
 
-            nonpar_eb = cluster_denoisers[cluster]  # Use cluster-specific prior
+            cluster_denoiser = self.cluster_denoisers[cluster]  # Use shared cluster denoiser
 
-            def create_denoise_func(nonpar_eb, start_col, end_col):
+            def create_modality_denoise(cluster_denoiser, start_col, end_col):
                 def denoise_func(f, mu, cov):
-                    denoised_cluster = nonpar_eb.denoise(f, mu, cov)
+                    denoised_cluster = cluster_denoiser["denoise"](f, mu, cov)
                     return denoised_cluster[:, start_col:end_col]
                 return denoise_func
 
-            def create_ddenoise_func(nonpar_eb, start_col, end_col):
+            def create_modality_ddenoise(cluster_denoiser, start_col, end_col):
                 def ddenoise_func(f, mu, cov):
-                    ddenoised_cluster = nonpar_eb.ddenoise(f, mu, cov)
+                    ddenoised_cluster = cluster_denoiser["ddenoise"](f, mu, cov)
                     return ddenoised_cluster[:, start_col:end_col, start_col:end_col]
                 return ddenoise_func
 
-            self.modality_denoisers[modality_idx] = (
-                create_denoise_func(nonpar_eb, start_col, end_col),
-                create_ddenoise_func(nonpar_eb, start_col, end_col),
-            )
+            # Store the modality-specific denoisers
+            self.modality_denoisers[modality_idx] = {
+                "denoise": create_modality_denoise(cluster_denoiser, start_col, end_col),
+                "ddenoise": create_modality_ddenoise(cluster_denoiser, start_col, end_col),
+            }
 
-        return self.cluster_priors, self.modality_denoisers
+        return self.cluster_priors, self.cluster_denoisers, self.modality_denoisers
 
 def generate_synthetic_data(num_modalities=6, num_clusters=3, n=100, r_range=(3, 7), noise_scale=0.1, seed=42):
     """
