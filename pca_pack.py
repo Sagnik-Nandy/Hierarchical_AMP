@@ -31,7 +31,7 @@ class MultiModalityPCA:
             raise ValueError("Mismatch: Number of modalities and K values must be the same.")
 
         for k, (X_k, K_k) in enumerate(zip(X_list, K_list)):
-            print(f"Running PCA for Modality {k}: Shape {X_k.shape}, K={K_k}")
+            #print(f"Running PCA for Modality {k}: Shape {X_k.shape}, K={K_k}")
             self.pca_results[k] = self._get_pca(X_k, K_k)
 
             if plot_residual:
@@ -84,7 +84,7 @@ class MultiModalityPCA:
                  np.sqrt((greek_lambda**2 * aspect_ratio - 1 - aspect_ratio)**2 - 4 * aspect_ratio))
                 / (2 * aspect_ratio)
             )
-            print(f"Estimated s: {greek_lambda}")
+            #print(f"Estimated s: {greek_lambda}")
 
         # Compute alignments
         sample_align = np.sqrt(np.maximum(1 - (1 + greek_lambda**2) / 

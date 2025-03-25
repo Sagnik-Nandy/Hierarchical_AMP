@@ -64,7 +64,7 @@ def ebamp_multimodal(pca_model, cluster_model_v, cluster_model_u, amp_iters=5, m
 
     for t in range(amp_iters):
 
-        print(f"\n--- AMP Iteration {t + 1} ---")
+        #print(f"\n--- AMP Iteration {t + 1} ---")
 
         # ---- Step 1: Denoising V (PER-MODALITY) ----
         for k in range(m):
@@ -153,14 +153,14 @@ def ebamp_multimodal(pca_model, cluster_model_v, cluster_model_u, amp_iters=5, m
                 g_k = X_list[k].T @ U_dict_denois[k][:, :, -1] - V_dict_denois[k][:, :, -1] @ b_bar_dict_u[k].T
                 V_dict[k] = np.dstack((V_dict[k], g_k[:, :, np.newaxis]))
 
-        # --- Log summary statistics ---
-        print("Sum of entries per modality (mu_u, mu_v, sigma_u, sigma_v):")
-        for k in range(m):
-            mu_u_sum = np.sum(mu_dict_u[k])
-            mu_v_sum = np.sum(mu_dict_v[k])
-            sigma_u_sum = np.sum(sigma_sq_dict_u[k])
-            sigma_v_sum = np.sum(sigma_sq_dict_v[k])
-            print(f"  Modality {k}: mu_u={mu_u_sum:.4f}, mu_v={mu_v_sum:.4f}, sigma_u={sigma_u_sum:.4f}, sigma_v={sigma_v_sum:.4f}")
+        # # --- Log summary statistics ---
+        # print("Sum of entries per modality (mu_u, mu_v, sigma_u, sigma_v):")
+        # for k in range(m):
+        #     mu_u_sum = np.sum(mu_dict_u[k])
+        #     mu_v_sum = np.sum(mu_dict_v[k])
+        #     sigma_u_sum = np.sum(sigma_sq_dict_u[k])
+        #     sigma_v_sum = np.sum(sigma_sq_dict_v[k])
+        #     print(f"  Modality {k}: mu_u={mu_u_sum:.4f}, mu_v={mu_v_sum:.4f}, sigma_u={sigma_u_sum:.4f}, sigma_v={sigma_v_sum:.4f}")
 
     return {
         "U_non_denoised": U_dict,
