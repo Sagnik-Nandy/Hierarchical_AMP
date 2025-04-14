@@ -12,6 +12,7 @@ from scipy.sparse.csgraph import shortest_path
 from sklearn.neighbors import radius_neighbors_graph
 from scipy.spatial import distance_matrix
 from scipy.sparse import csr_matrix
+from sklearn.neighbors import kneighbors_graph
 
 def compute_kmac(Y_ker, Y_gr, epsilon=0.1, sigma=1.0):
     """
@@ -95,11 +96,25 @@ def pca_correlation_similarity(X, Y, n_components=5):
     return np.mean(correlations)
 
 # 3. Canonical Correlation Analysis (CCA)
-def cca_similarity(X, Y, n_components=2):
+def cca_similarity(X, Y, n_components=None):
     """Computes similarity using Canonical Correlation Analysis (CCA)."""
+    max_components = min(X.shape[1], Y.shape[1])
+    if n_components is None:
+        n_components = max_components
+    else:
+        n_components = min(n_components, max_components)
+
     cca = CCA(n_components=n_components)
     X_c, Y_c = cca.fit_transform(X, Y)
-    return np.mean(np.corrcoef(X_c.T, Y_c.T)[0:n_components, n_components:])
+
+    # Compute correlation between corresponding canonical variables
+    corrs = [np.corrcoef(X_c[:, i], Y_c[:, i])[0, 1] for i in range(n_components)]
+    mean_corr = np.mean(corrs)
+
+    # Scale from [-1, 1] → [0, 1]
+    scaled_similarity = (mean_corr + 1) / 2
+
+    return scaled_similarity
 
 # 4. Procrustes Analysis
 def procrustes_similarity(X, Y):
@@ -110,18 +125,27 @@ def procrustes_similarity(X, Y):
 # 5. Wasserstein Distance
 def wasserstein_similarity(X, Y):
     """Computes similarity using the Wasserstein distance (Earth Mover's Distance)."""
-    return -wasserstein_distance(X.ravel(), Y.ravel())  # Convert to similarity
+    dist = wasserstein_distance(X.ravel(), Y.ravel())  # Convert to similarity
+    return 1 / (1 + dist)
 
 # 6. Graph-Based Diffusion Similarity
-def graph_diffusion_similarity(X, Y, k=5):
+def graph_diffusion_similarity(X, Y, k=5, sigma=1):
     """Computes similarity using graph-based diffusion distance."""
-    G_X = nx.k_nearest_neighbors(nx.Graph(), X, k)
-    G_Y = nx.k_nearest_neighbors(nx.Graph(), Y, k)
+    
+    A_X = kneighbors_graph(X, k, mode='connectivity', include_self=False)
+    A_Y = kneighbors_graph(Y, k, mode='connectivity', include_self=False)
 
-    D_X = shortest_path(nx.to_numpy_array(G_X))
-    D_Y = shortest_path(nx.to_numpy_array(G_Y))
+    D_X = shortest_path(A_X, directed=False)
+    D_Y = shortest_path(A_Y, directed=False)
 
-    return -np.linalg.norm(D_X - D_Y)  # Negative norm as similarity
+    diff = np.linalg.norm(D_X - D_Y)
+
+    if sigma is None:
+        sigma = diff  # or some fixed value
+
+    similarity = np.exp(- (diff ** 2) / (sigma ** 2))
+
+    return similarity
 
 # 7. Hilbert-Schmidt Similarity (HSS)
 def hilbert_schmidt_similarity(Y1, Y2, epsilon=0.1, sigma=1.0):
@@ -224,7 +248,7 @@ class ModalityClusterer:
         num_clusters : int, optional
             The desired number of clusters. If None, threshold must be provided.
         threshold : float, optional
-            The distance threshold for forming clusters. If None, num_clusters must be provided.
+            The distance threshold for forming clusters. If None and num_clusters is also None, an automatic threshold will be chosen based on largest distance jump.
         method : str, optional
             The linkage method for clustering (default is "average").
         kwargs : dict
@@ -255,7 +279,29 @@ class ModalityClusterer:
         elif threshold is not None:
             cluster_labels = sch.fcluster(self.linkage_matrix, threshold, criterion='distance')
         else:
-            raise ValueError("Either num_clusters or threshold must be provided.")
+            # Automatic selection using silhouette score
+            from sklearn.metrics import silhouette_score
+
+            best_score = -1
+            best_k = 1
+            #max_k = min(10, distance_matrix.shape[0])
+            max_k = 3
+
+            # Allow one cluster if all distances are effectively zero
+            if np.allclose(distance_matrix, 0, atol=1e-3):
+                return np.ones(distance_matrix.shape[0], dtype=int)
+
+            for k in range(2, max_k + 1):
+                labels = sch.fcluster(self.linkage_matrix, k, criterion='maxclust')
+                try:
+                    score = silhouette_score(distance_matrix, labels, metric='precomputed')
+                    if score > best_score:
+                        best_score = score
+                        best_k = k
+                except Exception:
+                    continue  # Skip invalid configurations
+
+            cluster_labels = sch.fcluster(self.linkage_matrix, best_k, criterion='maxclust')
 
         return cluster_labels
 

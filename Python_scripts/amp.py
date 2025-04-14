@@ -4,7 +4,7 @@ from emp_bayes import NonparEB, ClusterEmpiricalBayes
 from pca_pack import MultiModalityPCA
 from scipy.linalg import block_diag
 
-def ebamp_multimodal(pca_model, cluster_model_v, cluster_model_u, amp_iters=5, muteu=False, mutev=False):
+def ebamp_multimodal(pca_model, cluster_model_v, cluster_model_u, amp_iters=10, muteu=False, mutev=False):
     """
     Multimodal Gaussian Bayes AMP with per-modality denoising for V and per-cluster denoising for U.
 

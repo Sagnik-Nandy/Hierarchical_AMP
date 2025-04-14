@@ -192,8 +192,8 @@ class MultimodalPCAPipelineClustering:
 
     def denoise_amp(
         self, X_list, K_list,
-        cluster_labels_U=None, compute_clusters=True, num_clusters=1,
-        threshold=None, amp_iters=10, muteu=False, mutev=False, preprocess=False
+        cluster_labels_U=None, compute_clusters=True, num_clusters=None,
+        threshold=None, amp_iters=10, muteu=False, mutev=False, preprocess=False, similarity_method="hss"
     ):
         """
         Run the complete AMP denoising pipeline.
@@ -220,6 +220,8 @@ class MultimodalPCAPipelineClustering:
             If True, disables denoising in V direction.
         preprocess : bool
             Whether to normalize input data before PCA.
+        similarity_method : string
+            Method to compute similarity
 
         Returns
         -------
@@ -245,13 +247,13 @@ class MultimodalPCAPipelineClustering:
         if compute_clusters:
             from hierarchical_clustering_modalities import ModalityClusterer
             clusterer_obj = ModalityClusterer(U_normalized_list)
-            similarity_matrix = clusterer_obj.compute_similarity_matrix("hss", epsilon=0.2, sigma=1.0)
-            print("Similarity Matrix (HSS):\n", similarity_matrix)
-            cluster_labels_U = clusterer_obj.cluster_modalities("hss", num_clusters=num_clusters, threshold=threshold)
+            similarity_matrix = clusterer_obj.compute_similarity_matrix(similarity_method, epsilon=0.1, sigma=1.0)
+            print(f"Similarity Matrix ({similarity_method.upper()}):\n", similarity_matrix)
+            cluster_labels_U = clusterer_obj.cluster_modalities(similarity_method, num_clusters=num_clusters, threshold=threshold)
         elif cluster_labels_U is None:
             raise ValueError("Either enable compute_clusters or provide cluster_labels_U.")
 
-        print("Cluster Labels for U:", cluster_labels_U)
+        print("Cluster Labels for U:", cluster_labels_U, flush=True)
 
         # Step 4: Construct Empirical Bayes Models
         print("\n=== Step 4: Constructing Empirical Bayes Models ===")
@@ -410,8 +412,8 @@ class MultimodalPCAPipelineClusteringSimulation:
 
     def denoise_amp(
         self, X_list, K_list,
-        cluster_labels_U=None, compute_clusters=True, num_clusters=1,
-        threshold=None, amp_iters=10, muteu=False, mutev=False, preprocess=False
+        cluster_labels_U=None, compute_clusters=True, num_clusters=None,
+        threshold=None, amp_iters=10, muteu=False, mutev=False, preprocess=False, similarity_method="hss"
     ):
         """
         Run the complete AMP denoising pipeline.
@@ -438,6 +440,8 @@ class MultimodalPCAPipelineClusteringSimulation:
             If True, disables denoising in V direction.
         preprocess : bool
             Whether to normalize input data before PCA.
+        similarity_method : string
+            Method to compute similarity
 
         Returns
         -------
@@ -460,8 +464,9 @@ class MultimodalPCAPipelineClusteringSimulation:
         if compute_clusters:
             from hierarchical_clustering_modalities import ModalityClusterer
             clusterer_obj = ModalityClusterer(U_normalized_list)
-            similarity_matrix = clusterer_obj.compute_similarity_matrix("hss", epsilon=0.2, sigma=1.0)
-            cluster_labels_U = clusterer_obj.cluster_modalities("hss", num_clusters=num_clusters, threshold=threshold)
+            similarity_matrix = clusterer_obj.compute_similarity_matrix(similarity_method)
+            cluster_labels_U = clusterer_obj.cluster_modalities(similarity_method, num_clusters=num_clusters, threshold=threshold)
+            print(cluster_labels_U)
         elif cluster_labels_U is None:
             raise ValueError("Either enable compute_clusters or provide cluster_labels_U.")
 

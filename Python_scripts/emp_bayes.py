@@ -6,6 +6,9 @@ from matplotlib import rcParams
 import matplotlib.pyplot as plt
 from scipy.stats import multivariate_normal
 import importlib
+from sklearn.cluster import KMeans
+from sklearn.metrics import pairwise_distances_argmin_min
+
 
 def _npmle_em_hd(f, Z, mu, covInv, em_iter, eps=1e-5):
     """
@@ -236,6 +239,12 @@ class NonparEB(_BaseEmpiricalBayes):
         if self.nsupp_ratio >= 1:
             self.Z = f @ np.linalg.pinv(mu).T
         else:
+            # f is an (n_samples x n_features) matrix
+            kmeans = KMeans(n_clusters=self.nsupp, n_init=10, random_state=42)
+            kmeans.fit(f)
+            # Get indices of samples closest to each cluster center
+            closest, _ = pairwise_distances_argmin_min(kmeans.cluster_centers_, f)
+            idx = closest
             idx = np.random.choice(f.shape[0], self.nsupp, replace=False)
             self.Z = f[idx, :] @ np.linalg.pinv(mu).T
 
