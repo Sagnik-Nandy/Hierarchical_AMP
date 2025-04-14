@@ -68,6 +68,7 @@ class MultimodalPCAPipeline:
     2. Runs PCA to extract principal components and estimates noise structure.
     3. Constructs cluster-based empirical Bayes models for U and per-modality denoisers for V.
     4. Runs AMP to obtain denoised U and V matrices.
+    5. Optionally, estimate regression coefficients if response vector y is provided via `pipeline.y_train`.
 
     Attributes
     ----------
@@ -91,6 +92,7 @@ class MultimodalPCAPipeline:
         self.cluster_model_u = None
         self.cluster_model_v = None
         self.amp_results = None
+        self.y_train = None  # For supervised regression after AMP
 
     def denoise_amp(self, X_list, K_list, cluster_labels_U, amp_iters=10, muteu=False, mutev=False, preprocess = False):
         """
@@ -117,6 +119,7 @@ class MultimodalPCAPipeline:
             - "U_denoised": dict of denoised U matrices
             - "V_non_denoised": dict of non-denoised V matrices
             - "V_denoised": dict of denoised V matrices
+            - "beta_hat": estimated regression coefficients (if y_train is provided)
         """
         
         if preprocess:
@@ -160,6 +163,13 @@ class MultimodalPCAPipeline:
                                                 amp_iters=amp_iters, muteu=muteu, mutev=mutev)
 
         print("\n=== Denoising Complete! ===")
+        if hasattr(self, "y_train") and self.y_train is not None:
+            # --- Estimate beta from U_denoised and y ---
+            print("\n=== Step 6: Estimating Beta via Least Squares ===")
+            U_concat = np.hstack([self.amp_results["U_denoised"][k][:, :, -1] for k in sorted(self.amp_results["U_denoised"].keys())])
+            y = self.y_train
+            beta_hat = np.linalg.pinv(U_concat) @ y  # least squares solution
+            self.amp_results["beta_hat"] = beta_hat
         return self.amp_results
     
 class MultimodalPCAPipelineClustering:
@@ -171,6 +181,7 @@ class MultimodalPCAPipelineClustering:
     2. Cluster modalities based on normalized sample PCs (U).
     3. Construct empirical Bayes denoisers for U (cluster-based) and V (per-modality).
     4. Run AMP to denoise U and V.
+    5. Optionally, estimate regression coefficients if response vector y is provided via `pipeline.y_train`.
 
     Attributes
     ----------
@@ -182,6 +193,8 @@ class MultimodalPCAPipelineClustering:
         Empirical Bayes model for V (per-modality).
     amp_results : dict
         Dictionary of AMP outputs (raw/denoised U and V).
+    y_train : ndarray
+        Response vector for supervised regression (optional).
     """
 
     def __init__(self):
@@ -189,6 +202,7 @@ class MultimodalPCAPipelineClustering:
         self.cluster_model_u = None
         self.cluster_model_v = None
         self.amp_results = None
+        self.y_train = None  # For supervised regression after AMP
 
     def denoise_amp(
         self, X_list, K_list,
@@ -226,7 +240,12 @@ class MultimodalPCAPipelineClustering:
         Returns
         -------
         amp_results : dict
-            Contains denoised and raw U and V matrices.
+            Contains the following structured results:
+            - "U_non_denoised": dict of non-denoised U matrices
+            - "U_denoised": dict of denoised U matrices
+            - "V_non_denoised": dict of non-denoised V matrices
+            - "V_denoised": dict of denoised V matrices
+            - "beta_hat": estimated regression coefficients (if y_train is provided)
         """
         # Step 1: Preprocessing (optional)
         if preprocess:
@@ -280,6 +299,16 @@ class MultimodalPCAPipelineClustering:
         )
 
         print("\n=== Denoising Complete! ===")
+        if hasattr(self, "y_train") and self.y_train is not None:
+            # --- Estimate beta from U_denoised and y ---
+            print("\n=== Step 6: Estimating Beta via Least Squares ===")
+            U_concat = np.hstack([
+                self.amp_results["U_denoised"][k][:, :, -1]
+                for k in sorted(self.amp_results["U_denoised"].keys())
+            ])
+            y = self.y_train
+            beta_hat = np.linalg.pinv(U_concat) @ y  # least squares solution
+            self.amp_results["beta_hat"] = beta_hat
         return self.amp_results
     
 
@@ -292,6 +321,7 @@ class MultimodalPCAPipelineSimulation:
     2. Runs PCA to extract principal components and estimates noise structure.
     3. Constructs cluster-based empirical Bayes models for U and per-modality denoisers for V.
     4. Runs AMP to obtain denoised U and V matrices.
+    5. Optionally, estimate regression coefficients if response vector y is provided via `pipeline.y_train`.
 
     Attributes
     ----------
@@ -302,7 +332,9 @@ class MultimodalPCAPipelineSimulation:
     cluster_model_v : emp_bayes.ClusterEmpiricalBayes
         Empirical Bayes model where each modality is assigned a unique cluster for V.
     amp_results : dict
-        Stores U, V, denoised and raw versions.
+        Stores U, V, denoised and raw versions (raw/denoised U and V, estimated regression coefficients if applicable).
+    y_train : ndarray
+        Response vector for supervised regression (optional).
 
     Methods
     -------
@@ -315,6 +347,7 @@ class MultimodalPCAPipelineSimulation:
         self.cluster_model_u = None
         self.cluster_model_v = None
         self.amp_results = None
+        self.y_train = None  # For supervised regression after AMP
 
     def denoise_amp(self, X_list, K_list, cluster_labels_U, amp_iters=10, muteu=False, mutev=False, preprocess = False):
         """
@@ -341,6 +374,7 @@ class MultimodalPCAPipelineSimulation:
             - "U_denoised": dict of denoised U matrices
             - "V_non_denoised": dict of non-denoised V matrices
             - "V_denoised": dict of denoised V matrices
+            - "beta_hat": estimated regression coefficients (if y_train is provided)
         """
         
         if preprocess:
@@ -379,6 +413,14 @@ class MultimodalPCAPipelineSimulation:
         self.amp_results = amp.ebamp_multimodal(self.pca_model, self.cluster_model_v, self.cluster_model_u,
                                                 amp_iters=amp_iters, muteu=muteu, mutev=mutev)
 
+        if hasattr(self, "y_train") and self.y_train is not None:
+            # --- Estimate beta from U_denoised and y ---
+            print("\n=== Step 6: Estimating Beta via Least Squares ===")
+            U_concat = np.hstack([self.amp_results["U_denoised"][k][:, :, -1] for k in sorted(self.amp_results["U_denoised"].keys())])
+            y = self.y_train
+            beta_hat = np.linalg.pinv(U_concat) @ y  # least squares solution
+            self.amp_results["beta_hat"] = beta_hat
+
         return self.amp_results
 
 
@@ -391,6 +433,7 @@ class MultimodalPCAPipelineClusteringSimulation:
     2. Cluster modalities based on normalized sample PCs (U).
     3. Construct empirical Bayes denoisers for U (cluster-based) and V (per-modality).
     4. Run AMP to denoise U and V.
+    5. Optionally, estimate regression coefficients if response vector y is provided via `pipeline.y_train`.
 
     Attributes
     ----------
@@ -402,6 +445,8 @@ class MultimodalPCAPipelineClusteringSimulation:
         Empirical Bayes model for V (per-modality).
     amp_results : dict
         Dictionary of AMP outputs (raw/denoised U and V).
+    y_train : ndarray
+        Response vector for supervised regression (optional).
     """
 
     def __init__(self):
@@ -409,6 +454,7 @@ class MultimodalPCAPipelineClusteringSimulation:
         self.cluster_model_u = None
         self.cluster_model_v = None
         self.amp_results = None
+        self.y_train = None  # For supervised regression after AMP
 
     def denoise_amp(
         self, X_list, K_list,
@@ -446,7 +492,12 @@ class MultimodalPCAPipelineClusteringSimulation:
         Returns
         -------
         amp_results : dict
-            Contains denoised and raw U and V matrices.
+            Contains the following structured results:
+            - "U_non_denoised": dict of non-denoised U matrices
+            - "U_denoised": dict of denoised U matrices
+            - "V_non_denoised": dict of non-denoised V matrices
+            - "V_denoised": dict of denoised V matrices
+            - "beta_hat": estimated regression coefficients (if y_train is provided)
         """
         # Step 1: Preprocessing (optional)
         if preprocess:
@@ -491,4 +542,105 @@ class MultimodalPCAPipelineClusteringSimulation:
             muteu=muteu,
             mutev=mutev
         )
+        if hasattr(self, "y_train") and self.y_train is not None:
+            print("\n=== Step 6: Estimating Beta via Least Squares ===")
+            U_concat = np.hstack([
+                self.amp_results["U_denoised"][k][:, :, -1]
+                for k in sorted(self.amp_results["U_denoised"].keys())
+            ])
+            y = self.y_train
+            beta_hat = np.linalg.pinv(U_concat) @ y  # least squares solution
+            self.amp_results["beta_hat"] = beta_hat
         return self.amp_results
+    
+
+def predict_from_test_data(X_test, amp_results, n):
+    """
+    Given test data X_test and AMP results, reconstruct and denoise the U matrices, then generate predicted responses y_hat using the AMP-estimated regression coefficients.
+
+    Parameters
+    ----------
+    X_test : list of np.ndarray
+        List of n x p_k matrices for each modality.
+    amp_results : dict
+        Output from ebamp_multimodal() containing V_denoised, signal_diag_dict, and cluster models.
+    n : int
+        Training sample size.
+
+    Returns
+    -------
+    U_denoised_dict : dict
+        Dictionary mapping modality index to final denoised U_k matrices.
+    y_pred : ndarray or None
+        Predicted response vector if beta_hat is available from AMP results; otherwise None.
+    """
+    
+    V_dict = amp_results["V_denoised"]
+    D_dict = amp_results["signal_diag_dict"]
+    cluster_model_u = amp_results["cluster_model_u"]
+    cluster_labels_u = cluster_model_u.cluster_labels
+    cluster_denoisers = cluster_model_u.cluster_denoisers
+
+    m = len(X_test)
+    U_hat_dict = {}
+
+    # Step 1: Compute raw U_hat_k
+    for k in range(len(X_test)):
+        V_k = V_dict[k]             # shape: p_k x r_k
+        D_k = D_dict[k]             # shape: r_k x r_k (diagonal matrix)
+        A_k = (1.0 / n) * V_k @ D_k # shape: p_k x r_k
+        X_k = X_test[k]             # shape: n x p_k
+
+        # Compute U_hat_k = X_k A_k (A_k.T A_k)^{-1}
+        AtA_inv = np.linalg.inv(A_k.T @ A_k)
+        U_hat_k = X_k @ A_k @ AtA_inv
+        U_hat_dict[k] = U_hat_k
+
+    # Step 2: Cluster-wise denoising
+    U_denoised_dict = {}
+    for cluster_id in np.unique(cluster_labels_u):
+        modalities = [k for k in range(m) if cluster_labels_u[k] == cluster_id]
+        u_denoiser = cluster_denoisers[cluster_id]["denoise"]
+
+        # Form input matrix for denoiser
+        U_concat = np.hstack([U_hat_dict[k] for k in modalities])
+        M_cluster = np.eye(U_concat.shape[1])
+        S_blocks = []
+        for k in modalities:
+            V_k = V_dict[k][:, :, -1]
+            D_k = D_dict[k]
+            D_inv_sqrt = np.linalg.inv(np.sqrt(D_k))
+            Sigma_k = (1 / n) * (V_k.T @ V_k)  # not the inverse!
+            Sigma_k_inv = np.linalg.inv(Sigma_k)
+            S_k = D_inv_sqrt @ Sigma_k_inv @ D_inv_sqrt
+            S_k = S_k @ S_k  # square to get the covariance
+            S_blocks.append(S_k)
+        S_cluster = block_diag(*S_blocks)
+
+        # Apply denoiser
+        U_denoised_concat = u_denoiser(U_concat, M_cluster, S_cluster)
+
+        # Split and store
+        split_sizes = [U_hat_dict[k].shape[1] for k in modalities]
+        starts = np.cumsum([0] + split_sizes[:-1])
+        ends = np.cumsum(split_sizes)
+        for k, start, end in zip(modalities, starts, ends):
+            U_denoised_dict[k] = U_denoised_concat[:, start:end]
+
+    # Optional: Predict y using estimated beta
+    if "beta_hat" in amp_results:
+        beta_hat = amp_results["beta_hat"]
+        U_concat_pred = np.hstack([U_denoised_dict[k] for k in sorted(U_denoised_dict.keys())])
+        y_pred = U_concat_pred @ beta_hat
+        return U_denoised_dict, y_pred
+    else:
+        return U_denoised_dict, None
+
+
+
+
+
+
+
+
+

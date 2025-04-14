@@ -37,6 +37,9 @@ def ebamp_multimodal(pca_model, cluster_model_v, cluster_model_u, amp_iters=10, 
     mu_dict_u, sigma_sq_dict_u, mu_dict_v, sigma_sq_dict_v = {}, {}, {}, {}
     b_bar_dict_u = {}
 
+    # Store diagonal signal matrices for each modality
+    signal_diag_dict = {k: np.diag(pca_model.pca_results[k].signals) for k in range(m)}
+
     # Initialize storage per modality
     for k in range(m):
         pca_k = pca_model.pca_results[k]
@@ -162,9 +165,12 @@ def ebamp_multimodal(pca_model, cluster_model_v, cluster_model_u, amp_iters=10, 
         #     sigma_v_sum = np.sum(sigma_sq_dict_v[k])
         #     print(f"  Modality {k}: mu_u={mu_u_sum:.4f}, mu_v={mu_v_sum:.4f}, sigma_u={sigma_u_sum:.4f}, sigma_v={sigma_v_sum:.4f}")
 
-    return {
+        {
         "U_non_denoised": U_dict,
         "U_denoised": U_dict_denois,
         "V_non_denoised": V_dict,
-        "V_denoised": V_dict_denois
+        "V_denoised": V_dict_denois,
+        "signal_diag_dict": signal_diag_dict,
+        "cluster_model_u": cluster_model_u,
+        "cluster_model_v": cluster_model_v
     }

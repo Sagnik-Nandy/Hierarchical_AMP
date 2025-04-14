@@ -114,3 +114,4 @@ def ebamp_multimodal(pca_model, cluster_model, amp_iters=5, warm_start=True, mut
             g_k = X_k.T @ u_k - v_k @ b_bar_k.T
 
     return U_dict, V_dict
+
