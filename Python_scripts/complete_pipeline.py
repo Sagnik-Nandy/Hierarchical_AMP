@@ -1,6 +1,8 @@
 import numpy as np
 import importlib
 from scipy.linalg import block_diag
+import torch
+import torch.nn as nn
 
 # Dynamically import required modules
 pca_pack = importlib.import_module("pca_pack")
@@ -59,6 +61,105 @@ def extract_normalized_V(pca_model, X_list):
         normalized_V_list.append(V_k_normalized)
     return normalized_V_list
 
+
+# === Nonlinear Regression Modules ===
+class TwoLayerNN(nn.Module):
+    def __init__(self, input_dim, hidden_dim=32):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.Linear(input_dim, hidden_dim),
+            nn.ReLU(),
+            nn.Linear(hidden_dim, 1)
+        )
+
+    def forward(self, x):
+        return self.net(x)
+
+def train_nonlinear_regressor(pipeline, X_list, y, epochs=2000, lr=1e-3, hidden_dim=32):
+    """
+    Train cluster-specific two-layer networks f_theta_c to minimize
+    sum_i (y_i - E[f_theta(U_i)|hat U_i])^2, where the expectation
+    is taken w.r.t. EB posterior weights.
+    Saves trained models in pipeline.cluster_models_nonlinear and
+    the final predicted y in pipeline.y_pred_nonlinear.
+    """
+    # extract needed objects
+    V_dict = pipeline.amp_results["V_denoised"]
+    D_dict = pipeline.amp_results["signal_diag_dict"]
+    cluster_u = pipeline.cluster_model_u
+    labels = cluster_u.cluster_labels
+    priors = cluster_u.cluster_priors    # {c: (Z_c, pi_c)}
+    M_maps = cluster_u.cluster_M        # {c: M_c}
+    S_maps = cluster_u.cluster_S        # {c: S_c}
+
+    n = X_list[0].shape[0]
+    # reconstruct U_hat per modality
+    U_hat = {}
+    for k, Xk in enumerate(X_list):
+        V_k = V_dict[k][:,:, -1]
+        D_k = D_dict[k]
+        A_k = (1.0 / n) * V_k @ D_k
+        AtA_inv = np.linalg.inv(A_k.T @ A_k)
+        U_hat[k] = Xk @ A_k @ AtA_inv
+
+    # assemble cluster-specific inputs
+    cluster_inputs = {}
+    for c in np.unique(labels):
+        mods = [k for k in range(len(X_list)) if labels[k] == c]
+        Uc = np.hstack([U_hat[k] for k in mods])         # shape: (n, d_c)
+        Zc, pic = priors[c]                              # Zc: (m_c, d_c), pic: (m_c,)
+        # build cluster M and S same as in AMP
+        M_cluster = np.eye(Uc.shape[1])
+        S_blocks = []
+        for k in mods:
+            V_k = V_dict[k][:, :, -1]
+            D_k = D_dict[k]
+            D_inv_sqrt = np.linalg.inv(np.sqrt(D_k))
+            Sigma_k = (1 / n) * (V_k.T @ V_k)
+            Sigma_k_inv = np.linalg.inv(Sigma_k)
+            S_k = D_inv_sqrt @ Sigma_k_inv @ D_inv_sqrt
+            S_k = S_k @ S_k
+            S_blocks.append(S_k)
+        S_cluster = block_diag(*S_blocks)
+        covInv = np.linalg.pinv(S_cluster)
+        P = emp_bayes._get_P(Uc, Zc, M_cluster, covInv, pic)
+        # store tensors
+        cluster_inputs[c] = {
+            "P": torch.tensor(P, dtype=torch.float32),
+            "Z": torch.tensor(Zc, dtype=torch.float32)
+        }
+
+    y_tensor = torch.tensor(y, dtype=torch.float32).view(-1,1)
+    # create cluster models
+    cluster_models = {c: TwoLayerNN(cluster_inputs[c]["Z"].shape[1], hidden_dim) for c in cluster_inputs}
+    optimizers = {c: torch.optim.Adam(cluster_models[c].parameters(), lr=lr) for c in cluster_models}
+    loss_fn = nn.MSELoss()
+
+    # training loop
+    for ep in range(epochs):
+        total_loss = 0.0
+        # zero grads
+        for opt in optimizers.values():
+            opt.zero_grad()
+        # compute total expectation
+        E_sum = torch.zeros_like(y_tensor)
+        for c, inp in cluster_inputs.items():
+            fZ = cluster_models[c](inp["Z"])        # (m_c,1)
+            E_c = inp["P"] @ fZ                     # (n,1)
+            E_sum = E_sum + E_c
+        loss = loss_fn(E_sum, y_tensor)
+        loss.backward()
+        for opt in optimizers.values():
+            opt.step()
+        total_loss = loss.item()
+        if ep % 100 == 0:
+            print(f"[Nonlinear] Ep {ep}, loss {total_loss:.4f}", flush=True)
+
+    # store results
+    pipeline.cluster_models_nonlinear = cluster_models
+    pipeline.y_pred_nonlinear = E_sum.detach().cpu().numpy().flatten()
+    return pipeline.cluster_models_nonlinear, pipeline.y_pred_nonlinear
+
 class MultimodalPCAPipeline:
     """
     Implements a full pipeline for multimodal PCA denoising using Gaussian Bayes AMP.
@@ -93,6 +194,10 @@ class MultimodalPCAPipeline:
         self.cluster_model_v = None
         self.amp_results = None
         self.y_train = None  # For supervised regression after AMP
+<<<<<<< HEAD
+=======
+        self.relation = "linear"
+>>>>>>> f6fef4f (Added the complete pipeline)
 
     def denoise_amp(self, X_list, K_list, cluster_labels_U, amp_iters=10, muteu=False, mutev=False, preprocess = False):
         """
@@ -158,10 +263,13 @@ class MultimodalPCAPipeline:
         self.cluster_model_u.estimate_cluster_priors()
         self.cluster_model_v.estimate_cluster_priors()
 
+        print("hello", flush=True)
+
         print("\n=== Step 4: Running AMP ===")
         self.amp_results = amp.ebamp_multimodal(self.pca_model, self.cluster_model_v, self.cluster_model_u,
                                                 amp_iters=amp_iters, muteu=muteu, mutev=mutev)
 
+<<<<<<< HEAD
         print("\n=== Denoising Complete! ===")
         if hasattr(self, "y_train") and self.y_train is not None:
             # --- Estimate beta from U_denoised and y ---
@@ -170,7 +278,68 @@ class MultimodalPCAPipeline:
             y = self.y_train
             beta_hat = np.linalg.pinv(U_concat) @ y  # least squares solution
             self.amp_results["beta_hat"] = beta_hat
+=======
+        print("\n=== Denoising Complete! ===", flush=True)
+
+        if hasattr(self, "y_train") and self.y_train is not None:
+            V_dict = self.amp_results["V_denoised"]
+            D_dict = self.amp_results["signal_diag_dict"]
+            cluster_model_u = self.cluster_model_u
+            cluster_labels_u = cluster_model_u.cluster_labels
+            cluster_denoisers = cluster_model_u.cluster_denoisers
+
+            m = len(X_list)
+            n = X_list[0].shape[0]
+            U_hat_dict = {}
+
+            for k in range(m):
+                V_k = V_dict[k][:, :, -1]
+                D_k = D_dict[k]
+                A_k = (1.0 / n) * V_k @ D_k
+                X_k = X_list[k]
+                AtA_inv = np.linalg.inv(A_k.T @ A_k)
+                U_hat_k = X_k @ A_k @ AtA_inv
+                U_hat_dict[k] = U_hat_k
+
+            U_denoised_dict = {}
+            for cluster_id in np.unique(cluster_labels_u):
+                modalities = [k for k in range(m) if cluster_labels_u[k] == cluster_id]
+                u_denoiser = cluster_denoisers[cluster_id]["denoise"]
+                U_concat = np.hstack([U_hat_dict[k] for k in modalities])
+                M_cluster = np.eye(U_concat.shape[1])
+                S_blocks = []
+                for k in modalities:
+                    V_k = V_dict[k][:, :, -1]
+                    D_k = D_dict[k]
+                    D_inv_sqrt = np.linalg.inv(np.sqrt(D_k))
+                    Sigma_k = (1 / n) * (V_k.T @ V_k)
+                    Sigma_k_inv = np.linalg.inv(Sigma_k)
+                    S_k = D_inv_sqrt @ Sigma_k_inv @ D_inv_sqrt
+                    S_k = S_k @ S_k
+                    S_blocks.append(S_k)
+                S_cluster = block_diag(*S_blocks)
+                U_denoised_concat = u_denoiser(U_concat, M_cluster, S_cluster)
+                split_sizes = [U_hat_dict[k].shape[1] for k in modalities]
+                starts = np.cumsum([0] + split_sizes[:-1])
+                ends = np.cumsum(split_sizes)
+                for k, start, end in zip(modalities, starts, ends):
+                    U_denoised_dict[k] = U_denoised_concat[:, start:end]
+
+            relation_type = getattr(self, "relation", "linear")
+            if relation_type == "linear":
+                U_concat = np.hstack([U_denoised_dict[k] for k in sorted(U_denoised_dict.keys())])
+                y = self.y_train
+                beta_hat = np.linalg.pinv(U_concat) @ y
+                self.amp_results["beta_hat"] = beta_hat
+            if relation_type == "non-linear":
+                # train and apply nonlinear regressor
+                models, y_pred = train_nonlinear_regressor(self, X_list, self.y_train)
+                self.amp_results["cluster_models_nonlinear"] = models
+                self.amp_results["y_pred_nonlinear"] = y_pred
+>>>>>>> f6fef4f (Added the complete pipeline)
         return self.amp_results
+
+    # estimate_beta_from_consistent_denoising method removed as per instructions.
     
 class MultimodalPCAPipelineClustering:
     """
@@ -203,6 +372,10 @@ class MultimodalPCAPipelineClustering:
         self.cluster_model_v = None
         self.amp_results = None
         self.y_train = None  # For supervised regression after AMP
+<<<<<<< HEAD
+=======
+        self.relation = "linear"
+>>>>>>> f6fef4f (Added the complete pipeline)
 
     def denoise_amp(
         self, X_list, K_list,
@@ -299,6 +472,7 @@ class MultimodalPCAPipelineClustering:
         )
 
         print("\n=== Denoising Complete! ===")
+<<<<<<< HEAD
         if hasattr(self, "y_train") and self.y_train is not None:
             # --- Estimate beta from U_denoised and y ---
             print("\n=== Step 6: Estimating Beta via Least Squares ===")
@@ -309,6 +483,68 @@ class MultimodalPCAPipelineClustering:
             y = self.y_train
             beta_hat = np.linalg.pinv(U_concat) @ y  # least squares solution
             self.amp_results["beta_hat"] = beta_hat
+=======
+
+        if hasattr(self, "y_train") and self.y_train is not None:
+            # Inline estimate_beta_from_consistent_denoising
+            if self.amp_results is None:
+                raise RuntimeError("AMP must be run before estimating beta. Please call denoise_amp() first.")
+            V_dict = self.amp_results["V_denoised"]
+            D_dict = self.amp_results["signal_diag_dict"]
+            cluster_model_u = self.cluster_model_u
+            cluster_labels_u = cluster_model_u.cluster_labels
+            cluster_denoisers = cluster_model_u.cluster_denoisers
+
+            m = len(X_list)
+            n = X_list[0].shape[0]
+            U_hat_dict = {}
+
+            for k in range(m):
+                V_k = V_dict[k][:, :, -1]
+                D_k = D_dict[k]
+                A_k = (1.0 / n) * V_k @ D_k
+                X_k = X_list[k]
+                AtA_inv = np.linalg.inv(A_k.T @ A_k)
+                U_hat_k = X_k @ A_k @ AtA_inv
+                U_hat_dict[k] = U_hat_k
+
+            U_denoised_dict = {}
+            for cluster_id in np.unique(cluster_labels_u):
+                modalities = [k for k in range(m) if cluster_labels_u[k] == cluster_id]
+                u_denoiser = cluster_denoisers[cluster_id]["denoise"]
+                U_concat = np.hstack([U_hat_dict[k] for k in modalities])
+                M_cluster = np.eye(U_concat.shape[1])
+                S_blocks = []
+                for k in modalities:
+                    V_k = V_dict[k][:, :, -1]
+                    D_k = D_dict[k]
+                    D_inv_sqrt = np.linalg.inv(np.sqrt(D_k))
+                    Sigma_k = (1 / n) * (V_k.T @ V_k)
+                    Sigma_k_inv = np.linalg.inv(Sigma_k)
+                    S_k = D_inv_sqrt @ Sigma_k_inv @ D_inv_sqrt
+                    S_k = S_k @ S_k
+                    S_blocks.append(S_k)
+                S_cluster = block_diag(*S_blocks)
+                U_denoised_concat = u_denoiser(U_concat, M_cluster, S_cluster)
+                split_sizes = [U_hat_dict[k].shape[1] for k in modalities]
+                starts = np.cumsum([0] + split_sizes[:-1])
+                ends = np.cumsum(split_sizes)
+                for k, start, end in zip(modalities, starts, ends):
+                    U_denoised_dict[k] = U_denoised_concat[:, start:end]
+
+            # Final estimation depending on relation type
+            relation_type = getattr(self, "relation", "linear")
+            if relation_type == "linear":
+                U_concat = np.hstack([U_denoised_dict[k] for k in sorted(U_denoised_dict.keys())])
+                y = self.y_train
+                beta_hat = np.linalg.pinv(U_concat) @ y
+                self.amp_results["beta_hat"] = beta_hat
+            if relation_type == "non-linear":
+                # train and apply nonlinear regressor
+                models, y_pred = train_nonlinear_regressor(self, X_list, self.y_train)
+                self.amp_results["cluster_models_nonlinear"] = models
+                self.amp_results["y_pred_nonlinear"] = y_pred
+>>>>>>> f6fef4f (Added the complete pipeline)
         return self.amp_results
     
 
@@ -348,6 +584,10 @@ class MultimodalPCAPipelineSimulation:
         self.cluster_model_v = None
         self.amp_results = None
         self.y_train = None  # For supervised regression after AMP
+<<<<<<< HEAD
+=======
+        self.relation = "linear"
+>>>>>>> f6fef4f (Added the complete pipeline)
 
     def denoise_amp(self, X_list, K_list, cluster_labels_U, amp_iters=10, muteu=False, mutev=False, preprocess = False):
         """
@@ -414,6 +654,7 @@ class MultimodalPCAPipelineSimulation:
                                                 amp_iters=amp_iters, muteu=muteu, mutev=mutev)
 
         if hasattr(self, "y_train") and self.y_train is not None:
+<<<<<<< HEAD
             # --- Estimate beta from U_denoised and y ---
             print("\n=== Step 6: Estimating Beta via Least Squares ===")
             U_concat = np.hstack([self.amp_results["U_denoised"][k][:, :, -1] for k in sorted(self.amp_results["U_denoised"].keys())])
@@ -421,7 +662,68 @@ class MultimodalPCAPipelineSimulation:
             beta_hat = np.linalg.pinv(U_concat) @ y  # least squares solution
             self.amp_results["beta_hat"] = beta_hat
 
+=======
+            # Inline estimate_beta_from_consistent_denoising
+            if self.amp_results is None:
+                raise RuntimeError("AMP must be run before estimating beta. Please call denoise_amp() first.")
+            V_dict = self.amp_results["V_denoised"]
+            D_dict = self.amp_results["signal_diag_dict"]
+            cluster_model_u = self.cluster_model_u
+            cluster_labels_u = cluster_model_u.cluster_labels
+            cluster_denoisers = cluster_model_u.cluster_denoisers
+
+            m = len(X_list)
+            n = X_list[0].shape[0]
+            U_hat_dict = {}
+
+            for k in range(m):
+                V_k = V_dict[k][:, :, -1]
+                D_k = D_dict[k]
+                A_k = (1.0 / n) * V_k @ D_k
+                X_k = X_list[k]
+                AtA_inv = np.linalg.inv(A_k.T @ A_k)
+                U_hat_k = X_k @ A_k @ AtA_inv
+                U_hat_dict[k] = U_hat_k
+
+            U_denoised_dict = {}
+            for cluster_id in np.unique(cluster_labels_u):
+                modalities = [k for k in range(m) if cluster_labels_u[k] == cluster_id]
+                u_denoiser = cluster_denoisers[cluster_id]["denoise"]
+                U_concat = np.hstack([U_hat_dict[k] for k in modalities])
+                M_cluster = np.eye(U_concat.shape[1])
+                S_blocks = []
+                for k in modalities:
+                    V_k = V_dict[k][:, :, -1]
+                    D_k = D_dict[k]
+                    D_inv_sqrt = np.linalg.inv(np.sqrt(D_k))
+                    Sigma_k = (1 / n) * (V_k.T @ V_k)
+                    Sigma_k_inv = np.linalg.inv(Sigma_k)
+                    S_k = D_inv_sqrt @ Sigma_k_inv @ D_inv_sqrt
+                    S_k = S_k @ S_k
+                    S_blocks.append(S_k)
+                S_cluster = block_diag(*S_blocks)
+                U_denoised_concat = u_denoiser(U_concat, M_cluster, S_cluster)
+                split_sizes = [U_hat_dict[k].shape[1] for k in modalities]
+                starts = np.cumsum([0] + split_sizes[:-1])
+                ends = np.cumsum(split_sizes)
+                for k, start, end in zip(modalities, starts, ends):
+                    U_denoised_dict[k] = U_denoised_concat[:, start:end]
+
+            # Final estimation depending on relation type
+            relation_type = getattr(self, "relation", "linear")
+            if relation_type == "linear":
+                U_concat = np.hstack([U_denoised_dict[k] for k in sorted(U_denoised_dict.keys())])
+                y = self.y_train
+                beta_hat = np.linalg.pinv(U_concat) @ y
+                self.amp_results["beta_hat"] = beta_hat
+            if relation_type == "non-linear":
+                # train and apply nonlinear regressor
+                models, y_pred = train_nonlinear_regressor(self, X_list, self.y_train)
+                self.amp_results["cluster_models_nonlinear"] = models
+                self.amp_results["y_pred_nonlinear"] = y_pred
+>>>>>>> f6fef4f (Added the complete pipeline)
         return self.amp_results
+            
 
 
 class MultimodalPCAPipelineClusteringSimulation:
@@ -455,6 +757,10 @@ class MultimodalPCAPipelineClusteringSimulation:
         self.cluster_model_v = None
         self.amp_results = None
         self.y_train = None  # For supervised regression after AMP
+<<<<<<< HEAD
+=======
+        self.relation = "linear"
+>>>>>>> f6fef4f (Added the complete pipeline)
 
     def denoise_amp(
         self, X_list, K_list,
@@ -543,6 +849,7 @@ class MultimodalPCAPipelineClusteringSimulation:
             mutev=mutev
         )
         if hasattr(self, "y_train") and self.y_train is not None:
+<<<<<<< HEAD
             print("\n=== Step 6: Estimating Beta via Least Squares ===")
             U_concat = np.hstack([
                 self.amp_results["U_denoised"][k][:, :, -1]
@@ -555,6 +862,69 @@ class MultimodalPCAPipelineClusteringSimulation:
     
 
 def predict_from_test_data(X_test, amp_results, n):
+=======
+            # Inline estimate_beta_from_consistent_denoising
+            if self.amp_results is None:
+                raise RuntimeError("AMP must be run before estimating beta. Please call denoise_amp() first.")
+            V_dict = self.amp_results["V_denoised"]
+            D_dict = self.amp_results["signal_diag_dict"]
+            cluster_model_u = self.cluster_model_u
+            cluster_labels_u = cluster_model_u.cluster_labels
+            cluster_denoisers = cluster_model_u.cluster_denoisers
+
+            m = len(X_list)
+            n = X_list[0].shape[0]
+            U_hat_dict = {}
+
+            for k in range(m):
+                V_k = V_dict[k][:, :, -1]
+                D_k = D_dict[k]
+                A_k = (1.0 / n) * V_k @ D_k
+                X_k = X_list[k]
+                AtA_inv = np.linalg.inv(A_k.T @ A_k)
+                U_hat_k = X_k @ A_k @ AtA_inv
+                U_hat_dict[k] = U_hat_k
+
+            U_denoised_dict = {}
+            for cluster_id in np.unique(cluster_labels_u):
+                modalities = [k for k in range(m) if cluster_labels_u[k] == cluster_id]
+                u_denoiser = cluster_denoisers[cluster_id]["denoise"]
+                U_concat = np.hstack([U_hat_dict[k] for k in modalities])
+                M_cluster = np.eye(U_concat.shape[1])
+                S_blocks = []
+                for k in modalities:
+                    V_k = V_dict[k][:, :, -1]
+                    D_k = D_dict[k]
+                    D_inv_sqrt = np.linalg.inv(np.sqrt(D_k))
+                    Sigma_k = (1 / n) * (V_k.T @ V_k)
+                    Sigma_k_inv = np.linalg.inv(Sigma_k)
+                    S_k = D_inv_sqrt @ Sigma_k_inv @ D_inv_sqrt
+                    S_k = S_k @ S_k
+                    S_blocks.append(S_k)
+                S_cluster = block_diag(*S_blocks)
+                U_denoised_concat = u_denoiser(U_concat, M_cluster, S_cluster)
+                split_sizes = [U_hat_dict[k].shape[1] for k in modalities]
+                starts = np.cumsum([0] + split_sizes[:-1])
+                ends = np.cumsum(split_sizes)
+                for k, start, end in zip(modalities, starts, ends):
+                    U_denoised_dict[k] = U_denoised_concat[:, start:end]
+
+            # Final estimation depending on relation type
+            relation_type = getattr(self, "relation", "linear")
+            if relation_type == "linear":
+                U_concat = np.hstack([U_denoised_dict[k] for k in sorted(U_denoised_dict.keys())])
+                y = self.y_train
+                beta_hat = np.linalg.pinv(U_concat) @ y
+                self.amp_results["beta_hat"] = beta_hat
+            if relation_type == "non-linear":
+                # train and apply nonlinear regressor
+                models, y_pred = train_nonlinear_regressor(self, X_list, self.y_train)
+                self.amp_results["cluster_models_nonlinear"] = models
+                self.amp_results["y_pred_nonlinear"] = y_pred
+        return self.amp_results
+
+def predict_from_test_data(X_test, amp_results, n, relation="linear"):
+>>>>>>> f6fef4f (Added the complete pipeline)
     """
     Given test data X_test and AMP results, reconstruct and denoise the U matrices, then generate predicted responses y_hat using the AMP-estimated regression coefficients.
 
@@ -566,6 +936,11 @@ def predict_from_test_data(X_test, amp_results, n):
         Output from ebamp_multimodal() containing V_denoised, signal_diag_dict, and cluster models.
     n : int
         Training sample size.
+<<<<<<< HEAD
+=======
+    relation : str
+        "linear" or "non-linear"
+>>>>>>> f6fef4f (Added the complete pipeline)
 
     Returns
     -------
@@ -574,7 +949,10 @@ def predict_from_test_data(X_test, amp_results, n):
     y_pred : ndarray or None
         Predicted response vector if beta_hat is available from AMP results; otherwise None.
     """
+<<<<<<< HEAD
     
+=======
+>>>>>>> f6fef4f (Added the complete pipeline)
     V_dict = amp_results["V_denoised"]
     D_dict = amp_results["signal_diag_dict"]
     cluster_model_u = amp_results["cluster_model_u"]
@@ -586,7 +964,11 @@ def predict_from_test_data(X_test, amp_results, n):
 
     # Step 1: Compute raw U_hat_k
     for k in range(len(X_test)):
+<<<<<<< HEAD
         V_k = V_dict[k]             # shape: p_k x r_k
+=======
+        V_k = V_dict[k][:, :, -1]            # shape: p_k x r_k
+>>>>>>> f6fef4f (Added the complete pipeline)
         D_k = D_dict[k]             # shape: r_k x r_k (diagonal matrix)
         A_k = (1.0 / n) * V_k @ D_k # shape: p_k x r_k
         X_k = X_test[k]             # shape: n x p_k
@@ -627,15 +1009,72 @@ def predict_from_test_data(X_test, amp_results, n):
         for k, start, end in zip(modalities, starts, ends):
             U_denoised_dict[k] = U_denoised_concat[:, start:end]
 
+<<<<<<< HEAD
     # Optional: Predict y using estimated beta
     if "beta_hat" in amp_results:
+=======
+    # Linear prediction branch
+    if relation == "linear" and "beta_hat" in amp_results:
+>>>>>>> f6fef4f (Added the complete pipeline)
         beta_hat = amp_results["beta_hat"]
         U_concat_pred = np.hstack([U_denoised_dict[k] for k in sorted(U_denoised_dict.keys())])
         y_pred = U_concat_pred @ beta_hat
         return U_denoised_dict, y_pred
+<<<<<<< HEAD
     else:
         return U_denoised_dict, None
 
+=======
+    # Non-linear prediction branch
+    elif relation == "non-linear" and "cluster_models_nonlinear" in amp_results:
+        # Retrieve cluster nonlinear models
+        cluster_models = amp_results["cluster_models_nonlinear"]
+        # Retrieve cluster prior parameters from cluster_model_u in amp_results
+        cluster_model_u = amp_results["cluster_model_u"]
+        cluster_priors = cluster_model_u.cluster_priors
+        cluster_M = cluster_model_u.cluster_M
+        cluster_S = cluster_model_u.cluster_S
+        cluster_labels = cluster_model_u.cluster_labels
+        # For each cluster, recompute test U_hat and posterior weights P_test
+        y_pred_nonlinear = None
+        n_samples = X_test[0].shape[0]
+        y_pred_sum = torch.zeros((n_samples, 1), dtype=torch.float32)
+        # For each cluster
+        for c in np.unique(cluster_labels):
+            # Find modalities in this cluster
+            mods = [k for k in range(m) if cluster_labels[k] == c]
+            Uc = np.hstack([U_hat_dict[k] for k in mods])  # (n, d_c)
+            Zc, pic = cluster_priors[c]                    # Zc: (m_c, d_c), pic: (m_c,)
+            # Compose M and S for this cluster
+            # Compose M_cluster (identity) and S_cluster (block_diag of S_k as above)
+            M_cluster = np.eye(Uc.shape[1])
+            S_blocks = []
+            for k in mods:
+                V_k = V_dict[k][:, :, -1]
+                D_k = D_dict[k]
+                D_inv_sqrt = np.linalg.inv(np.sqrt(D_k))
+                Sigma_k = (1 / n) * (V_k.T @ V_k)
+                Sigma_k_inv = np.linalg.inv(Sigma_k)
+                S_k = D_inv_sqrt @ Sigma_k_inv @ D_inv_sqrt
+                S_k = S_k @ S_k
+                S_blocks.append(S_k)
+            S_cluster = block_diag(*S_blocks)
+            covInv = np.linalg.pinv(S_cluster)
+            # Compute posterior weights
+            P_test = emp_bayes._get_P(Uc, Zc, M_cluster, covInv, pic)
+            # Get model for this cluster and Zc as torch tensors
+            model = cluster_models[c]
+            Zc_tensor = torch.tensor(Zc, dtype=torch.float32)
+            P_test_tensor = torch.tensor(P_test, dtype=torch.float32)
+            # Predict f(Z) with model (no grad)
+            with torch.no_grad():
+                fZ = model(Zc_tensor)  # (m_c, 1)
+            # Compute E_c = P_test @ fZ
+            E_c = P_test_tensor @ fZ   # (n, 1)
+            y_pred_sum = y_pred_sum + E_c
+        y_pred_nonlinear = y_pred_sum.numpy().flatten()
+        return U_denoised_dict, y_pred_nonlinear
+>>>>>>> f6fef4f (Added the complete pipeline)
 
 
 

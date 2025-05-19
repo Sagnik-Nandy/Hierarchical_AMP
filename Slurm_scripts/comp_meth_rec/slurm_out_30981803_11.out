@@ -1,0 +1,3698 @@
+=== Starting job ID 11 on node midway3-0102.rcc.local ===
+Running comparison for rho=0.9, n=2500
+>>> Script started
+
+=== Running for rho = 0.9 ===
+
+=== Current trial for n = 2500, trial = 1 ===
+[1 1 2]
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    1
+
+=== Current trial for n = 2500, trial = 2 ===
+[1 1 2]
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    1
+
+=== Current trial for n = 2500, trial = 3 ===
+[1 1 2]
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    1
+
+=== Current trial for n = 2500, trial = 4 ===
+[1 1 2]
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    1
+
+=== Current trial for n = 2500, trial = 5 ===
+[1 1 2]
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    1
+
+=== Current trial for n = 2500, trial = 6 ===
+[1 1 2]
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    1
+
+=== Current trial for n = 2500, trial = 7 ===
+[1 1 2]
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    1
+
+=== Current trial for n = 2500, trial = 8 ===
+[1 1 2]
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    1
+
+=== Current trial for n = 2500, trial = 9 ===
+[1 1 2]
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    1
+
+=== Current trial for n = 2500, trial = 10 ===
+[1 1 2]
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    1
+
+=== Current trial for n = 2500, trial = 11 ===
+[1 1 2]
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    1
+
+=== Current trial for n = 2500, trial = 12 ===
+[1 1 2]
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    1
+
+=== Current trial for n = 2500, trial = 13 ===
+[1 1 2]
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    1
+
+=== Current trial for n = 2500, trial = 14 ===
+[1 1 2]
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    1
+
+=== Current trial for n = 2500, trial = 15 ===
+[1 1 2]
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    1
+
+=== Current trial for n = 2500, trial = 16 ===
+[1 1 2]
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    1
+
+=== Current trial for n = 2500, trial = 17 ===
+[1 1 2]
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    1
+
+=== Current trial for n = 2500, trial = 18 ===
+[1 1 2]
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    1
+
+=== Current trial for n = 2500, trial = 19 ===
+[1 1 2]
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    1
+
+=== Current trial for n = 2500, trial = 20 ===
+[1 1 2]
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    1
+
+=== Current trial for n = 2500, trial = 21 ===
+[1 1 2]
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    1
+
+=== Current trial for n = 2500, trial = 22 ===
+[1 1 2]
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    1
+
+=== Current trial for n = 2500, trial = 23 ===
+[1 1 2]
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    1
+
+=== Current trial for n = 2500, trial = 24 ===
+[1 1 2]
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    1
+
+=== Current trial for n = 2500, trial = 25 ===
+[1 1 2]
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    1
+
+=== Current trial for n = 2500, trial = 26 ===
+[1 1 2]
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    1
+
+=== Current trial for n = 2500, trial = 27 ===
+[1 1 2]
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    1
+
+=== Current trial for n = 2500, trial = 28 ===
+[1 1 2]
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    1
+
+=== Current trial for n = 2500, trial = 29 ===
+[1 1 2]
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    1
+
+=== Current trial for n = 2500, trial = 30 ===
+[1 1 2]
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    1    0
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    0
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    0
+[2,]    1    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    1    1
+[3,]    0    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    1    1
+[2,]    0    1
+[3,]    1    1
+Now checking the following component structure:
+     [,1] [,2]
+[1,]    0    1
+[2,]    1    1
+[3,]    1    1
+
+=== For rho = 0.9, the results are {'clustered': [np.float64(0.016023116669910253), np.float64(0.021004946151790535), np.float64(0.0019547274855025837)], 'distinct': [np.float64(0.03934563918914988), np.float64(0.04698970985416686), np.float64(0.0019567055674464986)], 'ajive': [np.float64(0.2882166818990078), np.float64(0.3668212627294108), np.float64(0.15559286854035217)], 'mcca': [np.float64(0.2928477676633321), np.float64(0.37128499731099107), np.float64(0.15559249827075686)], 'gcca': [np.float64(0.2882143406157524), np.float64(0.3668208901870257), np.float64(0.15559231065073462)], 'disco': [np.float64(0.2882162284692014), np.float64(0.36682384331457546), np.float64(0.15559326365066714)], 'mfa': [np.float64(0.24879989243478898), np.float64(0.30159554627244906), np.float64(0.15616679658144322)], 'hpca': [np.float64(0.288827216618035), np.float64(0.37149396724860945), np.float64(0.15609200493829492)]} ===
+>>> Results saved to Results/vary_rho_com_meth/rho_0.9_n_2500.csv

@@ -1,0 +1,16 @@
+=== Starting job ID 0 on node midway3-0153.rcc.local ===
+Running AMP experiment for n = 2000
+>>> Script started
+
+=== Running for rho = 0.8 ===
+
+=== Current trial for n = 2000, trial = 1 ===
+[1 1 2]
+
+=== Current trial for n = 2000, trial = 2 ===
+[1 1 2]
+
+=== Current trial for n = 2000, trial = 3 ===
+[1 1 2]
+
+=== Current trial for n = 2000, trial = 4 ===

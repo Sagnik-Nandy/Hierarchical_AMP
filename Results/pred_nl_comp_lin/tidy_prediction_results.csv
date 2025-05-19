@@ -1,0 +1,31 @@
+n,Method,Relation,PredictionError
+2000,Clustered,Linear,0.0173052958578656
+2000,Clustered,Non-linear,0.0161959441333797
+2000,Distinct Clusters,Linear,0.0466614941980337
+2000,Distinct Clusters,Non-linear,0.046053029036553
+2000,Same Cluster,Linear,0.0274855521023436
+2000,Same Cluster,Non-linear,0.0208713268540446
+2500,Clustered,Linear,0.0187436166284584
+2500,Clustered,Non-linear,0.0182463672435921
+2500,Distinct Clusters,Linear,0.0614662929601031
+2500,Distinct Clusters,Non-linear,0.0608419264368888
+2500,Same Cluster,Linear,0.0345282668143786
+2500,Same Cluster,Non-linear,0.0241535832276711
+3000,Clustered,Linear,0.0166690345621545
+3000,Clustered,Non-linear,0.0171015774093962
+3000,Distinct Clusters,Linear,0.0538280177546241
+3000,Distinct Clusters,Non-linear,0.0532945024100398
+3000,Same Cluster,Linear,0.0304676510606928
+3000,Same Cluster,Non-linear,0.022164244814374
+3500,Clustered,Linear,0.0154543733806032
+3500,Clustered,Non-linear,0.0148974765717535
+3500,Distinct Clusters,Linear,0.0494214098279875
+3500,Distinct Clusters,Non-linear,0.0492304833073155
+3500,Same Cluster,Linear,0.0263933738802802
+3500,Same Cluster,Non-linear,0.0202898397650681
+4000,Clustered,Linear,0.0188490584206466
+4000,Clustered,Non-linear,0.017981484626774
+4000,Distinct Clusters,Linear,0.064404796573208
+4000,Distinct Clusters,Non-linear,0.0637524584419843
+4000,Same Cluster,Linear,0.0338314746948583
+4000,Same Cluster,Non-linear,0.0232134119446129

@@ -1,0 +1,208 @@
+=== Starting job ID 2 on node midway3-0118.rcc.local ===
+Running AMP experiment for n = 3000
+>>> Script started
+>>> Running AMP comparison experiment with n = 3000
+
+=== Current trial for n = 3000, trial = 1 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 2 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 3 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 4 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 5 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 6 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 7 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 8 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 9 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 10 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 11 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 12 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 13 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 14 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 15 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 16 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 17 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 18 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 19 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 20 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 21 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 22 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 23 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 24 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 25 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 26 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 27 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 28 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 29 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 30 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 31 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 32 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 33 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 34 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 35 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 36 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 37 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 38 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 39 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 40 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 41 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 42 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 43 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 44 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 45 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 46 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 47 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 48 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 49 ===
+[1 1 2]
+
+
+=== Current trial for n = 3000, trial = 50 ===
+[1 1 2]
+
+>>> Finished experiment for n = 3000
+>>> Result: {'n': 3000, 'clustered': [np.float64(0.016750609717378184), np.float64(0.019838993502234697), np.float64(0.001807478341616317)], 'same_cluster': [np.float64(0.049978783986425496), np.float64(0.06662803459383909), np.float64(0.02631112015752886)], 'distinct_clusters': [np.float64(0.04006981158771763), np.float64(0.044464398638671326), np.float64(0.001814076381448311)], 'pred_clustered': np.float64(0.019071973548437874), 'pred_same_cluster': np.float64(0.03051980367901822), 'pred_distinct_clusters': np.float64(0.05391900672769638)}
+>>> Saving CSV
+>>> Plots saved

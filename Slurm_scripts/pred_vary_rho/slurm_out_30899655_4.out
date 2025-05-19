@@ -1,0 +1,919 @@
+=== Starting job ID 4 on node midway3-0030.rcc.local ===
+Running AMP experiment for n = 4000
+>>> Script started
+
+=== Running for rho = 0.8 ===
+
+=== Current trial for n = 4000, trial = 1 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 2 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 3 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 4 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 5 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 6 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 7 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 8 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 9 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 10 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 11 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 12 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 13 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 14 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 15 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 16 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 17 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 18 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 19 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 20 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 21 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 22 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 23 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 24 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 25 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 26 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 27 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 28 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 29 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 30 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 31 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 32 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 33 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 34 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 35 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 36 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 37 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 38 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 39 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 40 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 41 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 42 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 43 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 44 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 45 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 46 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 47 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 48 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 49 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 50 ===
+[1 1 2]
+[1 1 2]
+
+=== For rho = 0.8, the results are {'clustered recontruction error': [np.float64(0.04091946162964708), np.float64(0.17791472172614983), np.float64(0.001625209525709519)], 'distinct recontruction error': [np.float64(0.04028552084417973), np.float64(0.19518457248105553), np.float64(0.0016535791702656103)], 'same recontruction error': [np.float64(0.09640388380955954), np.float64(0.2640975942939449), np.float64(0.03865166613302579)], 'pred_clustered': np.float64(0.14147591670734358), 'pred_same_cluster': np.float64(0.19422919510401981), 'pred_distinct_clusters': np.float64(0.15566548653981802)} ===
+
+=== Running for rho = 0.85 ===
+
+=== Current trial for n = 4000, trial = 1 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 2 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 3 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 4 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 5 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 6 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 7 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 8 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 9 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 10 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 11 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 12 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 13 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 14 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 15 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 16 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 17 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 18 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 19 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 20 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 21 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 22 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 23 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 24 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 25 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 26 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 27 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 28 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 29 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 30 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 31 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 32 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 33 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 34 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 35 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 36 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 37 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 38 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 39 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 40 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 41 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 42 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 43 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 44 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 45 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 46 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 47 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 48 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 49 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 50 ===
+[1 1 2]
+[1 1 2]
+
+=== For rho = 0.85, the results are {'clustered recontruction error': [np.float64(0.03471804515680362), np.float64(0.18306488901450416), np.float64(0.0016519552380809014)], 'distinct recontruction error': [np.float64(0.03697348332345867), np.float64(0.22244012609952477), np.float64(0.001650382215966354)], 'same recontruction error': [np.float64(0.08410519594577492), np.float64(0.25583679397500886), np.float64(0.03492798250611132)], 'pred_clustered': np.float64(0.1350501362335214), 'pred_same_cluster': np.float64(0.18009725210925034), 'pred_distinct_clusters': np.float64(0.15449180388287354)} ===
+
+=== Running for rho = 0.9 ===
+
+=== Current trial for n = 4000, trial = 1 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 2 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 3 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 4 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 5 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 6 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 7 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 8 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 9 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 10 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 11 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 12 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 13 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 14 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 15 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 16 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 17 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 18 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 19 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 20 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 21 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 22 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 23 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 24 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 25 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 26 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 27 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 28 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 29 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 30 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 31 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 32 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 33 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 34 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 35 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 36 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 37 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 38 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 39 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 40 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 41 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 42 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 43 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 44 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 45 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 46 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 47 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 48 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 49 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 50 ===
+[1 1 2]
+[1 1 2]
+
+=== For rho = 0.9, the results are {'clustered recontruction error': [np.float64(0.029439206508485163), np.float64(0.17567254395588439), np.float64(0.0017033930545168505)], 'distinct recontruction error': [np.float64(0.039877293141490855), np.float64(0.22994452917975183), np.float64(0.0016866570016123477)], 'same recontruction error': [np.float64(0.07447131205486261), np.float64(0.2376506881767381), np.float64(0.032058140891963384)], 'pred_clustered': np.float64(0.11343466515362495), 'pred_same_cluster': np.float64(0.15569280395304833), 'pred_distinct_clusters': np.float64(0.13511003998448484)} ===
+
+=== Running for rho = 0.95 ===
+
+=== Current trial for n = 4000, trial = 1 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 2 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 3 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 4 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 5 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 6 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 7 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 8 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 9 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 10 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 11 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 12 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 13 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 14 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 15 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 16 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 17 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 18 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 19 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 20 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 21 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 22 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 23 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 24 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 25 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 26 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 27 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 28 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 29 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 30 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 31 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 32 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 33 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 34 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 35 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 36 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 37 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 38 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 39 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 40 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 41 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 42 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 43 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 44 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 45 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 46 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 47 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 48 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 49 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 50 ===
+[1 1 2]
+[1 1 2]
+
+=== For rho = 0.95, the results are {'clustered recontruction error': [np.float64(0.02117471679886021), np.float64(0.13408374564389836), np.float64(0.001561409281462013)], 'distinct recontruction error': [np.float64(0.03905095489868793), np.float64(0.1862726264530525), np.float64(0.001571201452712159)], 'same recontruction error': [np.float64(0.05769329424541093), np.float64(0.17921034376116513), np.float64(0.028736548895479323)], 'pred_clustered': np.float64(0.08591065161568989), 'pred_same_cluster': np.float64(0.10786600620461302), 'pred_distinct_clusters': np.float64(0.11858032767867101)} ===
+
+=== Running for rho = 1.0 ===
+
+=== Current trial for n = 4000, trial = 1 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 2 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 3 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 4 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 5 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 6 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 7 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 8 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 9 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 10 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 11 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 12 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 13 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 14 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 15 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 16 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 17 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 18 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 19 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 20 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 21 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 22 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 23 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 24 ===
+[1 1 2]
+[1 1 2]
+
+=== Current trial for n = 4000, trial = 25 ===

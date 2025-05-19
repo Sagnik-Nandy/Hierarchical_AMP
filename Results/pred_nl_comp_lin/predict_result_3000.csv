@@ -1,0 +1,2 @@
+n,pred_clustered,pred_same_cluster,pred_distinct_clusters,pred_clustered_linear,pred_same_cluster_linear,pred_distinct_clusters_linear
+3000,0.01710157740939621,0.02216424481437402,0.053294502410039815,0.016669034562154534,0.030467651060692845,0.05382801775462412
